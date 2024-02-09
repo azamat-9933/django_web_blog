@@ -1,74 +1,77 @@
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="container">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">
-                            About Us
-                        </a>
-                    </li>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active"
+                       aria-current="page"
+                       href="{% url 'about_us' %}">
+                        About Us
+                    </a>
+                </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Our Team
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% url 'our_team' %}">
+                        Our Team
+                    </a>
+                </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Services
-                        </a>
-                    </li>
-                </ul>
-
-
-                <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'services' %}">
+                        Services
+                    </a>
+                </li>
+            </ul>
 
 
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">
-                            Login in
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Sign in
-                        </a>
-                    </li>
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </li>
 
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                            Hello user !
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Add article</a></li>
-                            <li><a class="dropdown-item" href="#">View Profile</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Log out</a></li>
-                        </ul>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">
+                        Login in
+                    </a>
+                </li>
 
-                </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        Sign in
+                    </a>
+                </li>
 
 
-            </div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Hello user !
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Add article</a></li>
+                        <li><a class="dropdown-item" href="#">View Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Log out</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+
         </div>
-    </nav>
+    </div>
+</nav>

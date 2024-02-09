@@ -1,5 +1,8 @@
 from django.db import models
 
+from django.core.validators import RegexValidator
+
+
 # Create your models here.
 
 # CREATE TABLE IF NOT EXISTS Category()
@@ -23,3 +26,27 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class TeamMember(models.Model):
+    full_name = models.CharField(max_length=255)
+    job = models.CharField(max_length=255)
+    photo = models.ImageField(upload_to="team_members/")
+    bio = models.TextField()
+    telegram = models.URLField(validators=[
+        RegexValidator(r'^https?:\/\/t\.me\/[A-Za-z0-9_]{5,}$')
+    ])
+    instagram = models.URLField(validators=[
+        RegexValidator(r'^https?:\/\/www\.instagram\.com\/[A-Za-z0-9_]{5,}$')
+    ])
+    facebook = models.URLField(validators=[
+        RegexValidator(r'^https?:\/\/www\.facebook\.com\/[A-Za-z0-9_]{5,}$')
+    ])
+    vkontakte = models.URLField(validators=[
+        RegexValidator(r'^https?:\/\/vk\.com\/[A-Za-z0-9_]{5,}$')
+    ])
+
+    def __str__(self):
+        return self.full_name
+
+

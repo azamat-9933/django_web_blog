@@ -28,7 +28,9 @@
 
     {% include 'components/_navbar.html' %}
 
-    {% include 'components/_carousel.html' %}
+    {% block carousel %}
+        {% include 'components/_carousel.html' %}
+    {% endblock carousel %}
 
 </header>
 
