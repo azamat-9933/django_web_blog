@@ -36,8 +36,8 @@
                     </div>
                 </div>
                 <a href="{% url 'article_detail' article.id %}">
-                    <img src="{% if article.photo.url %}
-                              {{ article.photo.url }}
+                    <img src="{% if article.image %}
+                              {{ article.image.url }}
                               {% else %}
                               {% static 'blog/images/card_static.png' %}
                               {% endif %}"

@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, logout
 
 from .models import *
+from .forms import *
 
 
 def index(request):
@@ -57,7 +59,6 @@ def article_detail_page_view(request, article_id):
     article = Article.objects.get(id=article_id)
     breaking_articles = Article.objects.all().order_by('-created_at')
 
-
     context = {
         "title": f"Статья: {article.title}",
         "article": article,
@@ -67,11 +68,65 @@ def article_detail_page_view(request, article_id):
     return render(request, "article_detail.html", context)
 
 
+def add_article_view(request):
+    if request.method == "POST":
+        pass
+    elif request.method == "GET":
+        form = ArticleForm()
+
+    context = {
+        "title": "Добавить статью",
+        "form": form
+    }
+
+    return render(request, 'add_article.html', context)
+
+def user_register_view(request):
+    if request.method == "POST":
+        form = UserRegistrationForm(data=request.POST)
+        if form.is_valid():
+            user = form.save()
+            return redirect('login')
+        else:
+            # TODO: ERROR MESSAGE
+            pass
+    else:
+        form = UserRegistrationForm()
+
+    context = {
+        "title": "Регистрация пользователя",
+        "form": form
+    }
+
+    return render(request, "register.html", context)
 
 
+def user_login_view(request):
+    if request.method == "POST":
+        form = UserLoginForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            if user:
+                login(request, user)
+                return redirect('index')
+            else:
+                # TODO: ERROR MESSAGE
+                pass
+        else:
+            # TODO: ERROR MESSAGE
+            pass
+    else:
+        form = UserLoginForm()
+    context = {
+        "title": "Войти в аккаунт",
+        "form": form
+    }
+    return render(request, "login.html", context)
 
 
-
+def logout_user_view(request):
+    logout(request)
+    return redirect('index')
 
 
 
