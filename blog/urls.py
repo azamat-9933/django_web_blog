@@ -17,5 +17,16 @@ urlpatterns = [
 
     path('user_register/', user_register_view, name="register"),
     path('user_login/', user_login_view, name="login"),
-    path('user_logout', logout_user_view, name="logout")
+    path('user_logout', logout_user_view, name="logout"),
+
+    path('update_article/<int:article_id>/', update_article_view,
+         name='update_article'),
+
+    path('delete_article/<int:article_id>/', delete_article_view,
+         name='delete_article'),
+    path("search/", search_view, name="search"),
+    path("profile/<int:user_id>/", profile_page_view,
+         name="profile"),
+    path("edit_profile/<int:user_id>/", edit_profile_view,
+         name="edit_profile")
 ]
