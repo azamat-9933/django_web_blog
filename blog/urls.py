@@ -28,5 +28,8 @@ urlpatterns = [
     path("profile/<int:user_id>/", profile_page_view,
          name="profile"),
     path("edit_profile/<int:user_id>/", edit_profile_view,
-         name="edit_profile")
+         name="edit_profile"),
+    path("save_comment/<int:article_id>/",
+         save_comment,
+         name='save_comment')
 ]
